@@ -111,11 +111,18 @@ def ifConst1(F):
     return result
 
 
-def ifMonotonous(F):
-    result = False
-    sortedArray = sorted(F)
-    if sortedArray == F:
-        result = True
+def ifMonotonous(truthTable):
+    count = 0
+    result = True
+
+    for i in range(len(truthTable)):
+        for j in range(len(truthTable)):
+            for k in range(len(truthTable[i])):
+                if truthTable[i][k] >= truthTable[j][k]:
+                    count += 1
+            if ((count == 3) and (F[i] < F[j])):
+                result = False
+
     return result
 
 
@@ -131,4 +138,4 @@ print(ifConst0(F))
 print("Функція зберігає константу 1?")
 print(ifConst1(F))
 print("Функція монотонна?")
-print(ifMonotonous(F))
+print(ifMonotonous(truthTable))
