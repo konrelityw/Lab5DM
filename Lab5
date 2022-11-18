@@ -98,18 +98,16 @@ def polynomial(truthTable):
 
 
 def ifConst0(F):
-    result = True
-    for f in F:
-        if f == 1:
-            result = False
+    result = False
+    if F[0]==0:
+        result = True
     return result
 
 
 def ifConst1(F):
-    result = True
-    for f in F:
-        if f == 0:
-            result = False
+    result = False
+    if F[7] == 1:
+        result = True
     return result
 
 
